@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Personal Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+
+            <div class="sidebar-header">
+                <div class="logo">PD</div>
+                <div>
+                    <h2>Dashboard</h2>
+                    <span>Personal Space</span>
+                </div>
+            </div>
+
+            <nav class="navigation">
+
+                <a href="#dashboard" class="nav-link active">
+                    <span>⌂</span>
+                    Dashboard
+                </a>
+
+                <a href="#tasks" class="nav-link">
+                    <span>✓</span>
+                    Tasks
+                </a>
+
+                <a href="#notes" class="nav-link">
+                    <span>📝</span>
+                    Notes
+                </a>
+
+            </nav>
+
+            <div class="sidebar-bottom">
+                <button id="themeToggle" class="sidebar-button">
+                    🌙 Dark mode
+                </button>
+            </div>
+
+        </aside>
+
+
+        <!-- Main -->
+        <main class="main">
+
+            <!-- Mobile Header -->
+            <header class="mobile-header">
+
+                <button id="menuButton" class="menu-button">
+                    ☰
+                </button>
+
+                <h2>Dashboard</h2>
+
+            </header>
+
+
+            <!-- Top Bar -->
+            <header class="topbar">
+
+                <div>
+                    <p class="eyebrow">PERSONAL DASHBOARD</p>
+                    <h1>Good evening, Sondre 👋</h1>
+                    <p id="currentDate"></p>
+                </div>
+
+                <div class="profile">
+                    <div class="profile-avatar">
+                        SG
+                    </div>
+
+                    <div>
+                        <strong>Sondre Giæver</strong>
+                        <span>Developer</span>
+                    </div>
+                </div>
+
+            </header>
+
+
+            <!-- Statistics -->
+            <section class="stats-grid">
+
+                <article class="stat-card">
+                    <div class="stat-icon">✓</div>
+
+                    <div>
+                        <span>Total Tasks</span>
+                        <strong id="totalTasks">0</strong>
+                    </div>
+                </article>
+
+
+                <article class="stat-card">
+                    <div class="stat-icon">✓</div>
+
+                    <div>
+                        <span>Completed</span>
+                        <strong id="completedTasks">0</strong>
+                    </div>
+                </article>
+
+
+                <article class="stat-card">
+                    <div class="stat-icon">📝</div>
+
+                    <div>
+                        <span>Notes</span>
+                        <strong id="totalNotes">0</strong>
+                    </div>
+                </article>
+
+
+                <article class="stat-card">
+                    <div class="stat-icon">📊</div>
+
+                    <div>
+                        <span>Progress</span>
+                        <strong id="taskProgress">0%</strong>
+                    </div>
+                </article>
+
+            </section>
+
+
+            <!-- Dashboard Grid -->
+            <div class="dashboard-grid">
+
+
+                <!-- Tasks -->
+                <section class="card tasks-card" id="tasks">
+
+                    <div class="card-header">
+
+                        <div>
+                            <p class="section-label">PRODUCTIVITY</p>
+                            <h2>My Tasks</h2>
+                        </div>
+
+                        <button id="clearCompleted" class="text-button">
+                            Clear completed
+                        </button>
+
+                    </div>
+
+
+                    <form id="taskForm" class="task-form">
+
+                        <input
+                            type="text"
+                            id="taskInput"
+                            placeholder="Add a new task..."
+                            autocomplete="off"
+                        >
+
+                        <button type="submit">
+                            Add
+                        </button>
+
+                    </form>
+
+
+                    <div id="taskList" class="task-list"></div>
+
+                </section>
+
+
+                <!-- Notes -->
+                <section class="card notes-card" id="notes">
+
+                    <div class="card-header">
+
+                        <div>
+                            <p class="section-label">QUICK NOTES</p>
+                            <h2>Notes</h2>
+                        </div>
+
+                        <button id="addNoteButton" class="text-button">
+                            + Add note
+                        </button>
+
+                    </div>
+
+
+                    <div id="notesList" class="notes-list"></div>
+
+                </section>
+
+
+            </div>
+
+
+            <!-- Progress -->
+            <section class="card progress-card">
+
+                <div class="card-header">
+
+                    <div>
+                        <p class="section-label">OVERVIEW</p>
+                        <h2>Today's Progress</h2>
+                    </div>
+
+                    <strong id="progressText">0%</strong>
+
+                </div>
+
+
+                <div class="progress-bar">
+                    <div
+                        id="progressBar"
+                        class="progress-fill"
+                    ></div>
+                </div>
+
+                <p id="progressMessage">
+                    Start by adding a task.
+                </p>
+
+            </section>
+
+
+        </main>
+
+    </div>
+
+
+    <!-- Note Modal -->
+    <div id="noteModal" class="modal">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h2>Add Note</h2>
+
+                <button id="closeModal" class="close-button">
+                    ×
+                </button>
+
+            </div>
+
+
+            <form id="noteForm">
+
+                <input
+                    type="text"
+                    id="noteTitle"
+                    placeholder="Note title"
+                    required
+                >
+
+                <textarea
+                    id="noteContent"
+                    placeholder="Write your note..."
+                    rows="6"
+                    required
+                ></textarea>
+
+
+                <div class="modal-actions">
+
+                    <button
+                        type="button"
+                        id="cancelNote"
+                        class="secondary-button"
+                    >
+                        Cancel
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="primary-button"
+                    >
+                        Save note
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>

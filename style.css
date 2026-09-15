@@ -1,0 +1,869 @@
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    background: #f5f7fb;
+    color: #172033;
+
+    line-height: 1.5;
+}
+
+button,
+input,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* =========================================
+   APP
+========================================= */
+
+.app {
+    min-height: 100vh;
+    display: flex;
+}
+
+
+/* =========================================
+   SIDEBAR
+========================================= */
+
+.sidebar {
+    width: 250px;
+    min-height: 100vh;
+
+    background: #111827;
+    color: white;
+
+    padding: 24px 16px;
+
+    display: flex;
+    flex-direction: column;
+
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    z-index: 100;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 0 8px 30px;
+}
+
+.logo {
+    width: 42px;
+    height: 42px;
+
+    display: grid;
+    place-items: center;
+
+    background: #ffffff;
+    color: #111827;
+
+    border-radius: 12px;
+
+    font-weight: 800;
+}
+
+.sidebar-header h2 {
+    font-size: 17px;
+}
+
+.sidebar-header span {
+    color: #9ca3af;
+    font-size: 12px;
+}
+
+
+/* Navigation */
+
+.navigation {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 12px 14px;
+
+    border-radius: 10px;
+
+    color: #9ca3af;
+
+    transition: 0.2s ease;
+}
+
+.nav-link:hover {
+    background: #1f2937;
+    color: white;
+}
+
+.nav-link.active {
+    background: #ffffff;
+    color: #111827;
+}
+
+.nav-link span {
+    width: 20px;
+    text-align: center;
+}
+
+
+/* Sidebar bottom */
+
+.sidebar-bottom {
+    margin-top: auto;
+}
+
+.sidebar-button {
+    width: 100%;
+
+    border: 0;
+
+    background: #1f2937;
+    color: white;
+
+    padding: 12px;
+
+    border-radius: 10px;
+
+    text-align: left;
+}
+
+
+/* =========================================
+   MAIN
+========================================= */
+
+.main {
+    width: calc(100% - 250px);
+
+    margin-left: 250px;
+
+    padding: 36px;
+
+    max-width: 1600px;
+}
+
+
+/* =========================================
+   TOPBAR
+========================================= */
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 30px;
+
+    margin-bottom: 30px;
+}
+
+.eyebrow,
+.section-label {
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 0.12em;
+
+    color: #6b7280;
+
+    margin-bottom: 6px;
+}
+
+.topbar h1 {
+    font-size: clamp(28px, 4vw, 40px);
+
+    line-height: 1.1;
+
+    margin-bottom: 8px;
+}
+
+#currentDate {
+    color: #6b7280;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.profile-avatar {
+    width: 44px;
+    height: 44px;
+
+    display: grid;
+    place-items: center;
+
+    background: #111827;
+    color: white;
+
+    border-radius: 50%;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.profile span {
+    display: block;
+
+    color: #6b7280;
+
+    font-size: 13px;
+}
+
+
+/* =========================================
+   MOBILE HEADER
+========================================= */
+
+.mobile-header {
+    display: none;
+}
+
+
+/* =========================================
+   STATISTICS
+========================================= */
+
+.stats-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 18px;
+
+    margin-bottom: 24px;
+}
+
+.stat-card {
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 16px;
+
+    padding: 20px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+}
+
+.stat-icon {
+    width: 44px;
+    height: 44px;
+
+    display: grid;
+    place-items: center;
+
+    background: #f3f4f6;
+
+    border-radius: 12px;
+
+    font-size: 18px;
+}
+
+.stat-card span {
+    display: block;
+
+    color: #6b7280;
+
+    font-size: 13px;
+
+    margin-bottom: 2px;
+}
+
+.stat-card strong {
+    font-size: 25px;
+}
+
+
+/* =========================================
+   DASHBOARD GRID
+========================================= */
+
+.dashboard-grid {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.5fr)
+        minmax(300px, 1fr);
+
+    gap: 24px;
+
+    margin-bottom: 24px;
+}
+
+
+/* =========================================
+   CARDS
+========================================= */
+
+.card {
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 18px;
+
+    padding: 24px;
+}
+
+.card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 20px;
+}
+
+.card-header h2 {
+    font-size: 20px;
+}
+
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.text-button {
+    border: 0;
+
+    background: transparent;
+
+    color: #6b7280;
+
+    font-size: 13px;
+}
+
+.text-button:hover {
+    color: #111827;
+}
+
+
+/* =========================================
+   TASK FORM
+========================================= */
+
+.task-form {
+    display: flex;
+
+    gap: 10px;
+
+    margin-bottom: 20px;
+}
+
+.task-form input {
+    flex: 1;
+
+    min-width: 0;
+
+    border: 1px solid #d1d5db;
+
+    background: #f9fafb;
+
+    border-radius: 10px;
+
+    padding: 12px 14px;
+
+    outline: none;
+}
+
+.task-form input:focus {
+    border-color: #111827;
+    background: white;
+}
+
+.task-form button,
+.primary-button {
+    border: 0;
+
+    background: #111827;
+    color: white;
+
+    border-radius: 10px;
+
+    padding: 0 18px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================
+   TASKS
+========================================= */
+
+.task-list {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 13px;
+
+    background: #f9fafb;
+
+    border-radius: 10px;
+}
+
+.task-checkbox {
+    width: 18px;
+    height: 18px;
+
+    cursor: pointer;
+}
+
+.task-text {
+    flex: 1;
+
+    font-size: 14px;
+}
+
+.task-item.completed .task-text {
+    text-decoration: line-through;
+
+    color: #9ca3af;
+}
+
+.delete-task {
+    border: 0;
+
+    background: transparent;
+
+    color: #9ca3af;
+
+    font-size: 18px;
+}
+
+.delete-task:hover {
+    color: #111827;
+}
+
+
+/* =========================================
+   NOTES
+========================================= */
+
+.notes-list {
+    display: grid;
+
+    gap: 12px;
+}
+
+.note {
+    padding: 16px;
+
+    background: #f9fafb;
+
+    border-radius: 12px;
+
+    position: relative;
+}
+
+.note h3 {
+    font-size: 15px;
+
+    margin-bottom: 5px;
+
+    padding-right: 30px;
+}
+
+.note p {
+    color: #6b7280;
+
+    font-size: 13px;
+
+    white-space: pre-wrap;
+}
+
+.delete-note {
+    position: absolute;
+
+    top: 12px;
+    right: 12px;
+
+    border: 0;
+
+    background: transparent;
+
+    color: #9ca3af;
+}
+
+.delete-note:hover {
+    color: #111827;
+}
+
+
+/* =========================================
+   EMPTY STATES
+========================================= */
+
+.empty-state {
+    text-align: center;
+
+    color: #9ca3af;
+
+    padding: 30px 10px;
+
+    font-size: 14px;
+}
+
+
+/* =========================================
+   PROGRESS
+========================================= */
+
+.progress-card {
+    margin-bottom: 24px;
+}
+
+.progress-card > .card-header {
+    align-items: center;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 10px;
+
+    background: #e5e7eb;
+
+    border-radius: 999px;
+
+    overflow: hidden;
+
+    margin-bottom: 12px;
+}
+
+.progress-fill {
+    width: 0;
+
+    height: 100%;
+
+    background: #111827;
+
+    border-radius: inherit;
+
+    transition: width 0.3s ease;
+}
+
+#progressText {
+    font-size: 18px;
+}
+
+#progressMessage {
+    color: #6b7280;
+
+    font-size: 13px;
+}
+
+
+/* =========================================
+   MODAL
+========================================= */
+
+.modal {
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(17, 24, 39, 0.55);
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    z-index: 200;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-content {
+    width: 100%;
+    max-width: 500px;
+
+    background: white;
+
+    border-radius: 18px;
+
+    padding: 24px;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+.close-button {
+    border: 0;
+
+    background: transparent;
+
+    font-size: 28px;
+
+    color: #6b7280;
+}
+
+#noteForm {
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+#noteForm input,
+#noteForm textarea {
+    width: 100%;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 10px;
+
+    padding: 12px;
+
+    outline: none;
+
+    resize: vertical;
+}
+
+#noteForm input:focus,
+#noteForm textarea:focus {
+    border-color: #111827;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    margin-top: 5px;
+}
+
+.secondary-button {
+    border: 1px solid #d1d5db;
+
+    background: white;
+
+    border-radius: 10px;
+
+    padding: 10px 16px;
+}
+
+
+/* =========================================
+   DARK MODE
+========================================= */
+
+body.dark {
+    background: #0b1120;
+    color: #f9fafb;
+}
+
+body.dark .card,
+body.dark .stat-card,
+body.dark .modal-content {
+    background: #111827;
+
+    border-color: #1f2937;
+}
+
+body.dark .task-item,
+body.dark .note {
+    background: #1f2937;
+}
+
+body.dark .stat-icon {
+    background: #1f2937;
+}
+
+body.dark .task-form input,
+body.dark #noteForm input,
+body.dark #noteForm textarea {
+    background: #1f2937;
+
+    border-color: #374151;
+
+    color: white;
+}
+
+body.dark .progress-bar {
+    background: #374151;
+}
+
+body.dark .progress-fill {
+    background: white;
+}
+
+body.dark .task-form button,
+body.dark .primary-button {
+    background: white;
+    color: #111827;
+}
+
+body.dark .text-button:hover {
+    color: white;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 1100px) {
+
+    .stats-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 800px) {
+
+    .sidebar {
+        transform: translateX(-100%);
+
+        transition: transform 0.25s ease;
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+
+    .main {
+        width: 100%;
+
+        margin-left: 0;
+
+        padding: 20px;
+    }
+
+    .mobile-header {
+        display: flex;
+
+        align-items: center;
+
+        gap: 14px;
+
+        margin-bottom: 24px;
+    }
+
+    .mobile-header h2 {
+        font-size: 18px;
+    }
+
+    .menu-button {
+        width: 42px;
+        height: 42px;
+
+        border: 1px solid #e5e7eb;
+
+        background: white;
+
+        border-radius: 10px;
+    }
+
+    .topbar {
+        align-items: flex-start;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .main {
+        padding: 16px;
+    }
+
+    .topbar {
+        flex-direction: column;
+    }
+
+    .profile {
+        display: none;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        padding: 18px;
+    }
+
+    .task-form {
+        flex-direction: column;
+    }
+
+    .task-form button {
+        height: 44px;
+    }
+
+    .card-header {
+        align-items: center;
+    }
+}
